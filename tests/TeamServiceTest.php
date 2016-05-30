@@ -2,18 +2,27 @@
 
 use App\Services\TeamService;
 use App\Repositories\User\UserRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TeamServiceTest extends TestCase
 {
-    use DatabaseMigrations;
-    
+    use DatabaseTransactions;
+
+    /**
+     * @var TeamService
+     */
     protected $service;
+    /**
+     * @var UserRepository
+     */
     protected $userRepo;
     protected $originalArray;
     protected $editedArray;
 
 
+    /**
+     *
+     */
     public function setUp()
     {
         parent::setUp();
@@ -34,7 +43,8 @@ class TeamServiceTest extends TestCase
     public function testAll()
     {
         $user = factory(App\Repositories\User\User::class)->create();
-        $this->userRepo->joinTeam($user->id, 1);
+        $team = factory(App\Repositories\Team\Team::class)->create();
+        $this->userRepo->joinTeam($team->id, $user->id);
         $response = $this->service->all($user->id);
         $this->assertEquals(get_class($response), 'Illuminate\Database\Eloquent\Collection');
         $this->assertTrue(is_array($response->toArray()));

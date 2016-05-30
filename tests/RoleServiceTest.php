@@ -2,11 +2,11 @@
 
 use App\Services\RoleService;
 use App\Repositories\User\UserRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RoleServiceTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     protected $service;
     protected $originalArray;
@@ -18,12 +18,12 @@ class RoleServiceTest extends TestCase
         parent::setUp();
         $this->service = $this->app->make(RoleService::class);
         $this->originalArray = [
-            'id' => 1,
+
             'name' => 'coders',
             'label' => 'Coders'
         ];
         $this->editedArray = [
-            'id' => 1,
+
             'name' => 'hackers',
             'label' => 'Hackers'
         ];
@@ -56,7 +56,7 @@ class RoleServiceTest extends TestCase
     {
         $response = $this->service->create($this->originalArray);
         $this->assertEquals(get_class($response), 'App\Repositories\Role\Role');
-        $this->assertEquals(1, $response->id);
+        $this->assertEquals('coders', $response->name);
     }
 
     public function testUpdate()

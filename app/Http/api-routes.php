@@ -19,3 +19,13 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'Api'], function(){
         });
     });
 });
+
+/*
+|--------------------------------------------------------------------------
+| Team API Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['middleware' => 'jwt.auth'], function(){
+    Route::resource('api/v1/teams', 'Api\TeamController');
+});

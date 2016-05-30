@@ -1,11 +1,11 @@
 <?php
 
 use App\Repositories\UserMeta\UserMetaRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserMetaRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
     
      protected $repo;
 

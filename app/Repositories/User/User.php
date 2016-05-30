@@ -103,15 +103,5 @@ class User extends Model implements
 
         return in_array($id, $teamIds);
     }
-
-    /**
-     * Team admin
-     *
-     * @return boolean
-     */
-    public function isTeamAdmin($id)
-    {
-        $team = $this->teams->find($id);
-        return (int)$team->user_id === (int)$this->id;
-    }
+    
 }

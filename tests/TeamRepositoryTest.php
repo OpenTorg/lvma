@@ -1,11 +1,11 @@
 <?php
 
 use App\Repositories\Team\TeamRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TeamRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
     
     protected $repo;
     protected $originalArray;
@@ -55,7 +55,7 @@ class TeamRepositoryTest extends TestCase
     {
         $response = $this->repo->create($this->originalArray);
         $this->assertEquals(get_class($response), 'App\Repositories\Team\Team');
-        $this->assertEquals(1, $response->id);
+        $this->assertEquals('name', 'Awesomeness');
     }
 
     public function testFind()
@@ -63,7 +63,7 @@ class TeamRepositoryTest extends TestCase
         $item = $this->repo->create($this->originalArray);
 
         $response = $this->repo->find($item->id);
-        $this->assertEquals(1, $response->id);
+        $this->assertEquals($item->id, $response->id);
     }
 
     public function testUpdate()
@@ -73,7 +73,7 @@ class TeamRepositoryTest extends TestCase
 
         $response = $this->repo->update($item->id, $this->editedArray);
 
-        $this->assertEquals(1, $response->id);
+        $this->assertEquals($item->id, $response->id);
         $this->seeInDatabase('teams', $this->editedArray);
     }
 

@@ -28,7 +28,7 @@ $factory->define(App\Repositories\User\User::class, function (Faker\Generator $f
 
 $factory->define(App\Repositories\UserMeta\UserMeta::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
+        'user_id' => factory(App\Repositories\User\User::class)->create()->id,
         'phone' => $faker->phoneNumber,
         'marketing' => 1,
         'terms_and_cond' => 1,
@@ -50,7 +50,7 @@ $factory->define(App\Repositories\Role\Role::class, function (Faker\Generator $f
 
 $factory->define(App\Repositories\Team\Team::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
+        'user_id' => factory(App\Repositories\User\User::class)->create()->id,
         'name' => $faker->name
     ];
 });

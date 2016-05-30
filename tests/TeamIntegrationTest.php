@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TeamIntegrationTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
     use WithoutMiddleware;
 
     protected $user;
@@ -21,12 +21,10 @@ class TeamIntegrationTest extends TestCase
         $this->role = factory(App\Repositories\Role\Role::class)->create(['name' => 'admin']);
 
         $this->team = factory(App\Repositories\Team\Team::class)->make([
-            'id' => 1,
             'user_id' => $this->user->id,
             'name' => 'Awesomeness'
         ]);
         $this->teamEdited = factory(App\Repositories\Team\Team::class)->make([
-            'id' => 1,
             'user_id' => $this->user->id,
             'name' => 'Hackers'
         ]);
@@ -51,7 +49,7 @@ class TeamIntegrationTest extends TestCase
 
     public function testStore()
     {
-        $admin = factory(App\Repositories\User\User::class)->create([ 'id' => rand(1000, 9999) ]);
+        $admin = factory(App\Repositories\User\User::class)->create();
         $response = $this->actingAs($admin)->call('POST', 'teams', $this->team->toArray());
 
         $this->assertEquals(302, $response->getStatusCode());

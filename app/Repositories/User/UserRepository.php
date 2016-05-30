@@ -8,6 +8,11 @@ use App\Repositories\Team\Team;
 
 class UserRepository
 {
+    /**
+     * @var User $user
+     */
+    private $model;
+
     public function __construct(User $user)
     {
         $this->model = $user;

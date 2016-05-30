@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Schema;
 
 class TeamRepository
 {
+    /**
+     * @var Team
+     */
+    private $model;
+
     public function __construct(Team $team)
     {
         $this->model = $team;
@@ -17,19 +22,20 @@ class TeamRepository
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function all($id)
+    public function all()
     {
-        return $this->model->where('user_id', $id)->orderBy('created_at', 'desc')->get();
+        return $this->model->orderBy('created_at', 'desc')->get();
     }
 
     /**
      * Returns all paginated teams
      *
+     * @param $paginate
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function paginated($id, $paginate)
+    public function paginated($paginate)
     {
-        return $this->model->where('user_id', $id)->orderBy('created_at', 'desc')->paginate($paginate);
+        return $this->model->orderBy('created_at', 'desc')->paginate($paginate);
     }
 
     /**
@@ -37,16 +43,17 @@ class TeamRepository
      *
      * @param string $input
      *
-     * @return Team
+     * @param $paginate
+     * @return \App\Repositories\Team\Team
      */
-    public function search($input, $id, $paginate)
+    public function search($input, $paginate)
     {
         $query = $this->model->orderBy('created_at', 'desc');
 
         $columns = Schema::getColumnListing('teams');
 
         foreach ($columns as $attribute) {
-            $query->orWhere($attribute, 'LIKE', '%'.$input.'%')->where('user_id', $id);
+            $query->orWhere($attribute, 'LIKE', '%'.$input.'%')->where('user_id');
         };
 
         return $query->paginate($paginate);

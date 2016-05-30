@@ -1,11 +1,11 @@
 <?php
 
 use App\Repositories\User\UserRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserRepositoryTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
     
     protected $repo;
 

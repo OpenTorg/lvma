@@ -1,11 +1,11 @@
 <?php
 
 use App\Services\UserService;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserServiceTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     protected $service;
 

@@ -7,8 +7,17 @@ use App\Services\UserService;
 use App\Repositories\User\User;
 use App\Repositories\Team\TeamRepository;
 
+/**
+ * Class TeamService
+ * @package App\Services
+ */
 class TeamService
 {
+    /**
+     * TeamService constructor.
+     * @param TeamRepository $teamRepository
+     * @param \App\Services\UserService $userService
+     */
     public function __construct(
         TeamRepository $teamRepository,
         UserService $userService
@@ -17,109 +26,115 @@ class TeamService
         $this->userService = $userService;
     }
 
-    public function all($userId)
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function all()
     {
-        return $this->repo->all($userId);
+        return $this->repo->all();
     }
 
-    public function paginated($userId)
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function paginated()
     {
-        return $this->repo->paginated($userId, env('paginate', 25));
+        return $this->repo->paginated(env('paginate', 25));
     }
 
-    public function search($userId, $input)
+    /**
+     * @param $input
+     * @return \App\Repositories\Team\Team
+     */
+    public function search($input)
     {
-        return $this->repo->search($input, $userId, env('paginate', 25));
+        return $this->repo->search($input, env('paginate', 25));
     }
 
-    public function create($userId, $input)
+    /**
+     * @param $input
+     * @return \App\Repositories\Team\Team
+     * @throws \Exception
+     */
+    public function create($input)
     {
-        try {
-            $input['user_id'] = $userId;
             $team = $this->repo->create($input);
-            $this->userService->joinTeam($team->id, $userId);
             return $team;
-        } catch (Exception $e) {
-            throw new Exception("Failed to create team", 1);
-        }
     }
 
+    /**
+     * @param $id
+     * @return \App\Repositories\Team\Team|\Illuminate\Support\Collection|null|static
+     */
     public function find($id)
     {
         return $this->repo->find($id);
     }
 
+    /**
+     * @param $name
+     * @return \App\Repositories\Team\Team|\Illuminate\Support\Collection|null|static
+     */
     public function findByName($name)
     {
         return $this->repo->findByName($name);
     }
 
+    /**
+     * @param $id
+     * @param $input
+     * @return \App\Repositories\Team\Team
+     */
     public function update($id, $input)
     {
         return $this->repo->update($id, $input);
     }
 
-    public function destroy($user, $id)
+    /**
+     * @param $id
+     * @return \App\Repositories\Team\Team|bool|\Illuminate\Support\Collection|null|static
+     */
+    public function destroy($id)
     {
-        if ($user->isTeamAdmin($id)) {
-            $team = $this->repo->find($id);
-            foreach ($team->members as $member) {
-                $this->userService->leaveTeam($id, $member->id);
-            }
-            return $this->repo->destroy($id);
+        $team = $this->repo->find($id);
+        foreach ($team->members as $member) {
+            $this->userService->leaveTeam($id, $member->id);
         }
 
-        return false;
+        return $this->repo->destroy($id);
+
     }
 
-    public function invite($admin, $id, $email)
+    /**
+     * @param $id
+     * @param $email
+     * @return bool
+     * @throws \Exception
+     */
+    public function invite($id, $email)
     {
-        try {
-            if ($admin->isTeamAdmin($id)) {
-                $user = $this->userService->findByEmail($email);
 
-                if (! $user) {
-                    $password = Str::random(10);
+        $user = $this->userService->findByEmail($email);
 
-                    $user = User::create([
-                        'name' => $email,
-                        'email' => $email,
-                        'password' => bcrypt($password),
-                    ]);
-
-                    $this->userService->create($user, $password);
-                }
-
-                if ($user->isTeamMember($id)) {
-                    return false;
-                }
-
-                $this->userService->joinTeam($id, $user->id);
-
-                return true;
-            }
-
-            return false;
-        } catch (Exception $e) {
-            throw new Exception("Failed to invite member", 1);
+        if ($user->isTeamMember($id)) {
+            throw new \Exception("User arleady team member", 1);
         }
+
+        $this->userService->joinTeam($id, $user->id);
     }
 
-    public function remove($admin, $id, $userId)
+    /**
+     * @param $id
+     * @param $userId
+     * @return bool
+     * @throws \Exception
+     */
+    public function remove($id, $userId)
     {
-        try {
-            if ($admin->isTeamAdmin($id)) {
-                $user = $this->userService->find($userId);
 
-                if ($admin->isTeamAdmin($id)) {
-                    $this->userService->leaveTeam($id, $user->id);
-                    return true;
-                }
-            }
+        $user = $this->userService->find($userId);
+        $this->userService->leaveTeam($id, $user->id);
 
-            return false;
-        } catch (Exception $e) {
-            throw new Exception("Failed to remove member", 1);
-        }
+        return true;
     }
 }
