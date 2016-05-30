@@ -158,6 +158,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Yab\Laracogs\LaracogsProvider::class
 
     ],
 
