@@ -1,0 +1,27 @@
+{
+  "name": "lvma",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Aleks Ku <aleksku.pro@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "moment": "^2.13.0",
+    "keen-ui": "^0.8.8",
+    "vue": "^1.0.24",
+    "vue-router": "^0.7.13",
+    "bootstrap": "^3.3.6",
+    "material-shadows": "^2.0.2"
+  }
+}

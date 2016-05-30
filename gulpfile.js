@@ -1,4 +1,7 @@
+process.env.DISABLE_NOTIFIER = true;
+
 var elixir = require('laravel-elixir');
+require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,11 +15,25 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
-});
 
-elixir(function(mix) {
     mix.scripts([
+        'jquery/dist/jquery.js',
+        'vue/dist/vue.js',
+        'keen-ui/dist/keen-ui.js'
+    ],
+        'public/js/all.js', 'resources/assets/vendors');
+
+    mix.styles([
+        'keen-ui/dist/keen-ui.css'
+    ], 'public/css/all.css', 'resources/assets/vendors');
+
+    mix.less('app.less');
+
+    mix.browserify([
         'app.js'
     ]);
+
+    mix.copy(
+        'resources/fonts', 'public/fonts'
+    );
 });

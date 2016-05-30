@@ -1,5 +1,8 @@
-$(function(){
+import App from './App.vue';
 
-    $('.alert').delay(7000).fadeOut();
+Vue.use(Keen);
 
+var vm = new Vue({
+    el: 'body',
+    components: { App }
 });
