@@ -57,5 +57,7 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             require app_path('Http/routes.php');
         });
+        require app_path('Http/api-routes.php');
+
     }
 }
