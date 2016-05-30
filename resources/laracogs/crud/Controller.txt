@@ -9,6 +9,9 @@ use _namespace_request_\_camel_case_Request;
 
 class _camel_case_Controller extends Controller
 {
+    /**
+     * @param _camel_case_Service $_lower_case_Service
+     */
     public function __construct(_camel_case_Service $_lower_case_Service)
     {
         $this->service = $_lower_case_Service;
@@ -16,6 +19,8 @@ class _camel_case_Controller extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,6 +32,8 @@ class _camel_case_Controller extends Controller
 
     /**
      * Display a listing of the resource searched.
+     *
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */

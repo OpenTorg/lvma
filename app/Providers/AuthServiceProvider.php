@@ -26,6 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
+        $gate->define('admin', function ($user) { return ($user->roles->first()->name === 'admin'); });
+        $gate->define('team-member', function ($user, $team) { return ($user->teams->find($team->id)); });
+
         //
     }
 }
