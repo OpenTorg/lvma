@@ -16,6 +16,7 @@
 
 <body>
 <div id="app">
+    <navigation></navigation>
     @yield("content")
 </div>
 

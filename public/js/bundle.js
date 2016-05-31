@@ -10448,7 +10448,42 @@ exports.insert = function (css) {
 }
 
 },{}],5:[function(require,module,exports){
-var __vueify_insert__ = require("/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js")
+var __vueify_insert__ = require("/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js")
+var __vueify_style__ = __vueify_insert__.insert("\n\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    data: function data() {
+        return {
+            msg: 'hello vue'
+        };
+    },
+
+    components: {}
+
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div> {{msg}}</div>\n\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/Users/newage/Code/lvma/resources/assets/js/App.vue"
+  module.hot.dispose(function () {
+    __vueify_insert__.cache["\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],6:[function(require,module,exports){
+var __vueify_insert__ = require("/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
 
@@ -10481,6 +10516,7 @@ var dropdownOptions = [{
     icon: 'delete',
     secondaryText: 'Del'
 }];
+
 exports.default = {
     data: function data() {
         return {
@@ -10489,21 +10525,21 @@ exports.default = {
         };
     },
 
-    components: {},
-
     methods: {
         menuOptionSelected: function menuOptionSelected(option) {
             console.log('Selected', option.id);
         }
-    }
+    },
+
+    components: {}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div> {{msg}}</div>\n<ui-button color=\"primary\" has-dropdown-menu=\"\" show-menu-secondary-text=\"\" show-menu-icons=\"\" :menu-options=\"shareMenuOptions\" @menu-option-selected=\"menuOptionSelected\">Menu</ui-button>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ui-toolbar type=\"colored\" text-color=\"white\" flat=\"\">\n    <div slot=\"actions\">\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"arrow_back\"></ui-icon-button>\n\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"star_border\"></ui-icon-button>\n\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"more_vert\" has-dropdown-menu=\"\" :menu-options=\"shareMenuOptions\" dropdown-position=\"bottom right\"></ui-icon-button>\n    </div>\n\n    Inbox\n</ui-toolbar>\n"
 if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js")
+  var hotAPI = require("/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/home/aleksku/Code/lvma/resources/assets/js/App.vue"
+  var id = "/Users/newage/Code/lvma/resources/assets/js/Navigation.vue"
   module.hot.dispose(function () {
     __vueify_insert__.cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10514,12 +10550,16 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],6:[function(require,module,exports){
+},{"/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],7:[function(require,module,exports){
 'use strict';
 
 var _App = require('./App.vue');
 
 var _App2 = _interopRequireDefault(_App);
+
+var _Navigation = require('./Navigation.vue');
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10527,9 +10567,9 @@ Vue.use(Keen);
 
 var vm = new Vue({
     el: 'body',
-    components: { App: _App2.default }
+    components: { App: _App2.default, Navigation: _Navigation2.default }
 });
 
-},{"./App.vue":5}]},{},[6]);
+},{"./App.vue":5,"./Navigation.vue":6}]},{},[7]);
 
 //# sourceMappingURL=bundle.js.map
