@@ -2,6 +2,7 @@ process.env.DISABLE_NOTIFIER = true;
 
 var elixir = require('laravel-elixir');
 require('laravel-elixir-vueify');
+var BrowserSync = require('laravel-elixir-browsersync2');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,15 +17,22 @@ require('laravel-elixir-vueify');
 
 elixir(function(mix) {
 
+    BrowserSync.init();
+
+
     mix.scripts([
         'jquery/dist/jquery.js',
         'vue/dist/vue.js',
-        'keen-ui/dist/keen-ui.js'
+        'keen-ui/dist/keen-ui.js',
+        'jqwidgets/jqwidgets/jqx-all.js'
     ],
         'public/js/all.js', 'resources/assets/vendors');
 
     mix.styles([
-        'keen-ui/dist/keen-ui.css'
+        'keen-ui/dist/keen-ui.css',
+        'vue-animate/vue-animate.css',
+        'jqwidgets/jqwidgets/styles/jqx.base.css',
+        'jqwidgets/jqwidgets/styles/jqx.metro.css'
     ], 'public/css/all.css', 'resources/assets/vendors');
 
     mix.less('app.less');
@@ -36,4 +44,13 @@ elixir(function(mix) {
     mix.copy(
         'resources/fonts', 'public/fonts'
     );
+
+    mix.BrowserSync({
+        proxy : "lvma.local",
+        logConnections: false,
+        reloadOnRestart: false,
+        notify: false,
+        open: false,
+        reloadDelay: 1000
+    });
 });

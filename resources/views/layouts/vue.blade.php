@@ -17,7 +17,9 @@
 <body>
 <div id="app">
     <navigation></navigation>
+    <section id="main">
     @yield("content")
+    </section>
 </div>
 
 <script src="/js/all.js"></script>

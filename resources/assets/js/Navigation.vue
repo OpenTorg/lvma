@@ -1,5 +1,6 @@
 <template>
-    <ui-toolbar type="colored" text-color="white" flat>
+    <header id="header" class="clearfix" >
+    <ui-toolbar type="colored" text-color="white">
         <div slot="actions">
             <ui-icon-button
                     type="clear" color="white" icon="arrow_back"
@@ -9,7 +10,7 @@
                     type="clear" color="white" icon="star_border"
             ></ui-icon-button>
 
-            <ui-icon-button
+            <ui-icon-button transition="fadeLeft"
                     type="clear" color="white" icon="more_vert" has-dropdown-menu
                     :menu-options="shareMenuOptions" dropdown-position="bottom right"
             ></ui-icon-button>
@@ -17,6 +18,7 @@
 
         Inbox
     </ui-toolbar>
+        </header>
 </template>
 <style>
 

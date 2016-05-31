@@ -10448,7 +10448,7 @@ exports.insert = function (css) {
 }
 
 },{}],5:[function(require,module,exports){
-var __vueify_insert__ = require("/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js")
+var __vueify_insert__ = require("/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
 
@@ -10468,10 +10468,10 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div> {{msg}}</div>\n\n\n"
 if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js")
+  var hotAPI = require("/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/newage/Code/lvma/resources/assets/js/App.vue"
+  var id = "/home/aleksku/Code/lvma/resources/assets/js/App.vue"
   module.hot.dispose(function () {
     __vueify_insert__.cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10482,8 +10482,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],6:[function(require,module,exports){
-var __vueify_insert__ = require("/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js")
+},{"/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],6:[function(require,module,exports){
+var __vueify_insert__ = require("/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
 
@@ -10534,12 +10534,12 @@ exports.default = {
     components: {}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ui-toolbar type=\"colored\" text-color=\"white\" flat=\"\">\n    <div slot=\"actions\">\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"arrow_back\"></ui-icon-button>\n\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"star_border\"></ui-icon-button>\n\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"more_vert\" has-dropdown-menu=\"\" :menu-options=\"shareMenuOptions\" dropdown-position=\"bottom right\"></ui-icon-button>\n    </div>\n\n    Inbox\n</ui-toolbar>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<header id=\"header\" class=\"clearfix\">\n<ui-toolbar type=\"colored\" text-color=\"white\">\n    <div slot=\"actions\">\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"arrow_back\"></ui-icon-button>\n\n        <ui-icon-button type=\"clear\" color=\"white\" icon=\"star_border\"></ui-icon-button>\n\n        <ui-icon-button transition=\"fadeLeft\" type=\"clear\" color=\"white\" icon=\"more_vert\" has-dropdown-menu=\"\" :menu-options=\"shareMenuOptions\" dropdown-position=\"bottom right\"></ui-icon-button>\n    </div>\n\n    Inbox\n</ui-toolbar>\n    </header>\n"
 if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js")
+  var hotAPI = require("/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/Users/newage/Code/lvma/resources/assets/js/Navigation.vue"
+  var id = "/home/aleksku/Code/lvma/resources/assets/js/Navigation.vue"
   module.hot.dispose(function () {
     __vueify_insert__.cache["\n\n"] = false
     document.head.removeChild(__vueify_style__)
@@ -10550,7 +10550,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"/Users/newage/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/Users/newage/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],7:[function(require,module,exports){
+},{"/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}],7:[function(require,module,exports){
 'use strict';
 
 var _App = require('./App.vue');
@@ -10561,15 +10561,81 @@ var _Navigation = require('./Navigation.vue');
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
+var _RolesPage = require('./pages/RolesPage.vue');
+
+var _RolesPage2 = _interopRequireDefault(_RolesPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 Vue.use(Keen);
 
 var vm = new Vue({
     el: 'body',
-    components: { App: _App2.default, Navigation: _Navigation2.default }
+    components: { App: _App2.default, Navigation: _Navigation2.default, "roles_page": _RolesPage2.default }
 });
 
-},{"./App.vue":5,"./Navigation.vue":6}]},{},[7]);
+},{"./App.vue":5,"./Navigation.vue":6,"./pages/RolesPage.vue":8}],8:[function(require,module,exports){
+var __vueify_insert__ = require("/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js")
+var __vueify_style__ = __vueify_insert__.insert("\n\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+
+var dropdownOptions = [{
+    id: 'edit',
+    text: 'Edit',
+    icon: 'edit',
+    secondaryText: 'Ctrl+E'
+}, {
+    id: 'duplicate',
+    text: 'Duplicate',
+    icon: 'content_copy',
+    secondaryText: 'Ctrl+D'
+}, {
+    id: 'share',
+    text: 'Share',
+    icon: 'share',
+    secondaryText: 'Ctrl+Shift+S',
+    disabled: true
+}, {
+    type: 'divider'
+}, {
+    id: 'delete',
+    text: 'Delete',
+    icon: 'delete',
+    secondaryText: 'Del'
+}];
+
+exports.default = {
+    data: function data() {
+        return {
+            msg: 'hello vue',
+            shareMenuOptions: dropdownOptions
+        };
+    },
+
+    components: {}
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n    <section id=\"content\">\n<div class=\"container container-alt\">\n    <div class=\"block-header\">\n        <h2>Permission Management\n            <small>Manage Permission</small>\n        </h2>\n\n        <ul class=\"actions m-t-20 hidden-xs\">\n            <li class=\"dropdown\">\n                <ui-icon-button containfocus=\"\" transition=\"fadeLeft\" type=\"clear\" icon=\"more_vert\" has-dropdown-menu=\"\" :menu-options=\"shareMenuOptions\" dropdown-position=\"bottom right\"></ui-icon-button>\n            </li>\n        </ul>\n    </div>\n    <div class=\"messages card\">\n        <div class=\"m-sidebar\">\n            <header>\n                <h2 class=\"hidden-xs\">Groups</h2>\n\n                <ul class=\"actions\">\n                    <li>\n                        <a href=\"\">\n                            <i class=\"zmdi zmdi-comment-text\"></i>\n                        </a>\n                    </li>\n                    <li class=\"dropdown hidden-xs\">\n                        <a href=\"\" data-toggle=\"dropdown\">\n                            <i class=\"zmdi zmdi-more-vert\"></i>\n                        </a>\n\n                        <ul class=\"dropdown-menu dropdown-menu-right\">\n                            <li>\n                                <a href=\"\">Profile &amp; Status</a>\n                            </li>\n                            <li>\n                                <a href=\"\">Help</a>\n                            </li>\n                            <li>\n                                <a href=\"\">Settings</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n            </header>\n\n            <div class=\"ms-search hidden-xs\">\n                <div class=\"fg-line\">\n                    <i class=\"zmdi zmdi-search\"></i>\n\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </div>\n            </div>\n\n            <div class=\"list-group c-overflow\">\n                <a class=\"list-group-item media\" href=\"\">\n\n                    <div class=\"media-body\">\n                        <div class=\"lgi-heading\">Access</div>\n                        <small class=\"lgi-text\">Access group</small>\n                        <small class=\"ms-time\">5 perm</small>\n                    </div>\n                </a>\n\n                <a class=\"list-group-item media active\" href=\"\">\n\n                    <div class=\"media-body\">\n                        <div class=\"lgi-heading\">User</div>\n                        <small class=\"lgi-text\">User group</small>\n                        <small class=\"ms-time\">3 perm</small>\n                    </div>\n                </a>\n            </div>\n\n        </div>\n\n        <div class=\"m-body\">\n            <header class=\"mb-header\">\n                <div class=\"mbh-user clearfix\">\n                    <div class=\"p-t-5\">User Group</div>\n                </div>\n\n                <ul class=\"actions\">\n                    <li>\n                        <a href=\"\">\n                            <i class=\"zmdi zmdi-refresh-alt\"></i>\n                        </a>\n                    </li>\n                    <li>\n                        <a href=\"\">\n                            <i class=\"zmdi zmdi-delete\"></i>\n                        </a>\n                    </li>\n                    <li class=\"dropdown\">\n                        <a href=\"\" data-toggle=\"dropdown\">\n                            <i class=\"zmdi zmdi-more-vert\"></i>\n                        </a>\n\n                        <ul class=\"dropdown-menu dropdown-menu-right\">\n                            <li>\n                                <a href=\"\">Contact Info</a>\n                            </li>\n                            <li>\n                                <a href=\"\">Mute</a>\n                            </li>\n                            <li>\n                                <a href=\"\">Clear Messages</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n            </header>\n\n            <div class=\"mb-list\">\n                <div class=\"mbl-messages c-overflow\">\n                    <div class=\"mblm-item mblm-item-left\">\n                        <div>\n                            Nullam id dolor id nibh ultricies vehicula ut id elit\n                        </div>\n                        <small>5:47 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-right\">\n                        <div>\n                            Cras justo odio, dapibus ac facilisis in, egestas eget quamurabitur blandit tempus porttitor\n                        </div>\n                        <small>5:49 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-right\">\n                        <div>\n                            blandit tempus\n                        </div>\n                        <small>5:55 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-left\">\n                        <div>\n                            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo.\n                        </div>\n                        <small>6:10 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-left\">\n                        <div>\n                            <div class=\"mblmi-img\">\n                                <img src=\"media/gallery/20.jpg\" alt=\"\">\n                            </div>\n                        </div>\n                        <small>6:10 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-left\">\n                        <div>\n                            Donec id elit non mi porta gravida at eget metus\n                        </div>\n                        <small>6:11 PM</small>\n                    </div>\n                    <div class=\"mblm-item mblm-item-right\">\n                        <div>\n                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.                                    </div>\n                        <small>6:15 PM</small>\n                    </div>\n                </div>\n\n                <div class=\"mbl-compose\">\n                    <textarea placeholder=\"Type a message...\"></textarea>\n\n                    <button><i class=\"zmdi zmdi-mail-send\"></i></button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n    </section>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/home/aleksku/Code/lvma/resources/assets/js/pages/RolesPage.vue"
+  module.hot.dispose(function () {
+    __vueify_insert__.cache["\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"/home/aleksku/Code/lvma/node_modules/vue-hot-reload-api/index.js":2,"/home/aleksku/Code/lvma/node_modules/vueify/lib/insert-css.js":4,"vue":3}]},{},[7]);
 
 //# sourceMappingURL=bundle.js.map

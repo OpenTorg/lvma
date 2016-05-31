@@ -5,10 +5,11 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
-    "vue": "^1.0.24",
     "laravel-elixir": "^5.0.0",
+    "laravel-elixir-browsersync2": "^0.1.0",
     "laravel-elixir-vueify": "*",
-    "bootstrap-sass": "^3.0.0"
+    "vue": "^1.0.24"
   }
 }
