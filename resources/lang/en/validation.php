@@ -34,6 +34,7 @@ return [
     'different'            => 'The :attribute and :other must be different.',
     'digits'               => 'The :attribute must be :digits digits.',
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
+    'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
     'email'                => 'The :attribute must be a valid email address.',
     'exists'               => 'The selected :attribute is invalid.',
@@ -108,6 +109,54 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'backend' => [
+            'access' => [
+                'permissions' => [
+                    'associated_roles' => 'Associated Roles',
+                    'dependencies' => 'Dependencies',
+                    'display_name' => 'Display Name',
+                    'group' => 'Group',
+                    'group_sort' => 'Group Sort',
+
+                    'groups' => [
+                        'name' => 'Group Name',
+                    ],
+
+                    'name' => 'Name',
+                    'system' => 'System?',
+                ],
+
+                'roles' => [
+                    'associated_permissions' => 'Associated Permissions',
+                    'name' => 'Name',
+                    'sort' => 'Sort',
+                ],
+
+                'users' => [
+                    'active' => 'Active',
+                    'associated_roles' => 'Associated Roles',
+                    'confirmed' => 'Confirmed',
+                    'email' => 'E-mail Address',
+                    'name' => 'Name',
+                    'other_permissions' => 'Other Permissions',
+                    'password' => 'Password',
+                    'password_confirmation' => 'Password Confirmation',
+                    'send_confirmation_email' => 'Send Confirmation E-mail',
+                ],
+            ],
+        ],
+
+        'frontend' => [
+            'email' => 'E-mail Address',
+            'name' => 'Name',
+            'password' => 'Password',
+            'password_confirmation' => 'Password Confirmation',
+            'old_password' => 'Old Password',
+            'new_password' => 'New Password',
+            'new_password_confirmation' => 'New Password Confirmation',
+        ],
+    ],
 
 ];

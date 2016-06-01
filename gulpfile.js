@@ -17,17 +17,17 @@ var BrowserSync = require('laravel-elixir-browsersync2');
 
 elixir(function(mix) {
 
-    BrowserSync.init();
+   /* BrowserSync.init();*/
 
 
     mix.scripts([
-        'jquery/dist/jquery.js',
-        'vue/dist/vue.js',
-        'vue-router/dist/vue-router.js',
-        'vue-resource/dist/vue-resource.js',
-        'keen-ui/dist/keen-ui.js',
-        'jqwidgets/jqwidgets/jqx-all.js'
-    ],
+            'jquery/dist/jquery.js',
+            'vue/dist/vue.js',
+            'vue-router/dist/vue-router.js',
+            'vue-resource/dist/vue-resource.js',
+            'keen-ui/dist/keen-ui.js',
+            'jqwidgets/jqwidgets/jqx-all.js'
+        ],
         'public/js/all.js', 'resources/assets/vendors');
 
     mix.styles([
@@ -47,12 +47,14 @@ elixir(function(mix) {
         'resources/fonts', 'public/fonts'
     );
 
-    mix.BrowserSync({
+/*    mix.Browserync({
         proxy : "lvma.local",
         logConnections: false,
         reloadOnRestart: false,
         notify: false,
         open: false,
         reloadDelay: 1000
-    });
+    });*/
+    
+    mix.version(['public/css/all.css', 'public/css/app.css', 'public/js/all.js', 'public/js/bundle.js']);
 });
