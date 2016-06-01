@@ -7733,7 +7733,7 @@ h6 small,
 #main {
   position: relative;
   padding-bottom: 110px;
-  padding-top: 100px;
+  padding-top: 86px;
   min-height: 100vh;
 }
 .sidebar-toggled #main {
@@ -7939,8 +7939,7 @@ h6 small,
     You may remove these if you opt header 2
 ---------------------------------------------------*/
 #header {
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
-  min-height: 70px;
+  min-height: 56px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -7952,11 +7951,10 @@ h6 small,
   width: 100%;
   left: 0;
   top: 0;
-  padding: 0 20px;
 }
 @media (max-width: 767px) {
   #header {
-    padding: 0px 8px;
+    padding: 0;
   }
 }
 #header .hi-logo a {
@@ -7980,7 +7978,7 @@ h6 small,
   top: -65px;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 56px;
   background: #fff;
   transition: all;
   transition-duration: 300ms;
@@ -8147,7 +8145,7 @@ h6 small,
   position: fixed;
   background: #fff;
   height: calc(100% - 70px);
-  top: 70px;
+  top: 56px;
   transition: all;
   transition-duration: 300ms;
   z-index: 10;

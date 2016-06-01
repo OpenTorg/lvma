@@ -1,14 +1,22 @@
-import App from './App.vue';
 import Navigation from './Navigation.vue';
 import RolesPage from './pages/RolesPage.vue';
+import { configRouter } from './routes'
 
 Vue.use(Keen);
+Vue.use(VueRouter);
 
-var vm = new Vue({
-    el: 'body',
+var App = Vue.extend({
+
     components: {
-        App, 
         Navigation,
         "roles_page": RolesPage
     }
 });
+
+var router = new VueRouter({
+    saveScrollPosition: true
+});
+
+
+configRouter(router);
+router.start(App, 'body');

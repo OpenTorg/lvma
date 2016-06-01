@@ -23,6 +23,8 @@ elixir(function(mix) {
     mix.scripts([
         'jquery/dist/jquery.js',
         'vue/dist/vue.js',
+        'vue-router/dist/vue-router.js',
+        'vue-resource/dist/vue-resource.js',
         'keen-ui/dist/keen-ui.js',
         'jqwidgets/jqwidgets/jqx-all.js'
     ],
