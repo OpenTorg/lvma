@@ -54,9 +54,11 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('backend.access.roles.permissions.index')
-            ->withPermissions($this->permissions->getPermissionsPaginated(50))
-            ->withGroups($this->groups->getAllGroups());
+        \JavaScript::put([
+            'permissions' => $this->permissions->getAllPermissions(),
+            'groups' => $this->groups->getAllGroups(true)
+        ]);
+        return view('access.permissions.index');
     }
 
     /**

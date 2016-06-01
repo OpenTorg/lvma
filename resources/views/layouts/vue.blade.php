@@ -11,16 +11,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="/css/all.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
-
+    @include("includes.partials.js")
 </head>
 
 <body>
+
 <div id="app">
     <navigation></navigation>
     <section id="main">
     @yield("content")
     </section>
 </div>
+
 
 <script src="/js/all.js"></script>
 <script src="/js/bundle.js"></script>

@@ -1,5 +1,5 @@
 import Navigation from './Navigation.vue';
-import RolesPage from './pages/RolesPage.vue';
+import PermissionsPage from './pages/PermissionsPage.vue';
 import { configRouter } from './routes'
 
 Vue.use(Keen);
@@ -9,9 +9,11 @@ var App = Vue.extend({
 
     components: {
         Navigation,
-        "roles_page": RolesPage
+        "permissions_page": PermissionsPage
     }
 });
+
+window.App = App;
 
 var router = new VueRouter({
     saveScrollPosition: true

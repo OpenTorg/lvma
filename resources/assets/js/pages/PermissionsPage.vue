@@ -153,13 +153,10 @@
 
 
     export default{
-        data(){
-            return {
-                msg: 'hello vue',
-                shareMenuOptions: dropdownOptions
-            }
+        props: {
+            permissions
         },
-        components: {}
+        components: {},
     }
 </script>
 
