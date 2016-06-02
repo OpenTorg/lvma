@@ -15,9 +15,10 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
      * @param  $id
      * @return mixed
      */
-    public function find($id)
+    public function find($id, $withPermissions = false)
     {
-        return PermissionGroup::findOrFail($id);
+        return PermissionGroup::with('permissions')
+            ->findOrFail($id);
     }
 
     /**
@@ -33,16 +34,18 @@ class EloquentPermissionGroupRepository implements PermissionGroupRepositoryCont
     }
 
     /**
-     * @param  bool    $withChildren
+     * @param  bool $withChildren
+     * @param bool $withCount
      * @return mixed
      */
-    public function getAllGroups($withChildren = false)
+    public function getAllGroups($withChildren = false, $withCount = false)
     {
-        if ($withChildren) {
+        if (false === $withChildren) {
             return PermissionGroup::orderBy('name', 'asc')->get();
         }
 
-        return PermissionGroup::with('children', 'permissions')
+        return PermissionGroup::with('children.permissions', 'permissions')
+            ->withCount('permissions')
             ->whereNull('parent_id')
             ->orderBy('sort', 'asc')
             ->get();

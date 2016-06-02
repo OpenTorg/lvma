@@ -54,6 +54,8 @@ class Permission extends Model
      */
     protected $guarded = ['id'];
 
+    protected $with = ['dependencies.permission'];
+
     /**
      * @param array $attributes
      */

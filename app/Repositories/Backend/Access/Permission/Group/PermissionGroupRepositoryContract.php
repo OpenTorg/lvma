@@ -12,7 +12,7 @@ interface PermissionGroupRepositoryContract
      * @param  $id
      * @return mixed
      */
-    public function find($id);
+    public function find($id, $withPermissions = false);
 
     /**
      * @param  int     $limit
@@ -24,7 +24,7 @@ interface PermissionGroupRepositoryContract
      * @param  bool    $withChildren
      * @return mixed
      */
-    public function getAllGroups($withChildren = false);
+    public function getAllGroups($withChildren = false, $withCount = false);
 
     /**
      * @param  $input

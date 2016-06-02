@@ -2,10 +2,14 @@
 
 namespace App\Models\Access\Role;
 
+use App\Models\Access\Permission\Permission;
+use App\Models\Access\User\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Role\Traits\RoleAccess;
 use App\Models\Access\Role\Traits\Attribute\RoleAttribute;
 use App\Models\Access\Role\Traits\Relationship\RoleRelationship;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class Role
@@ -20,14 +24,14 @@ use App\Models\Access\Role\Traits\Relationship\RoleRelationship;
  * @property-read mixed $edit_button
  * @property-read mixed $delete_button
  * @property-read mixed $action_buttons
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\User\User[] $users
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\Permission\Permission[] $permissions
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereAll($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereSort($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Role\Role whereUpdatedAt($value)
+ * @property-read Collection|User[] $users
+ * @property-read Collection|Permission[] $permissions
+ * @method static Builder|Role whereId($value)
+ * @method static Builder|Role whereName($value)
+ * @method static Builder|Role whereAll($value)
+ * @method static Builder|Role whereSort($value)
+ * @method static Builder|Role whereCreatedAt($value)
+ * @method static Builder|Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Role extends Model

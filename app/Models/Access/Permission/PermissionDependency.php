@@ -4,6 +4,7 @@ namespace App\Models\Access\Permission;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Permission\Traits\Relationship\PermissionDependencyRelationship;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class PermissionDependency
@@ -14,12 +15,12 @@ use App\Models\Access\Permission\Traits\Relationship\PermissionDependencyRelatio
  * @property integer $dependency_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \App\Models\Access\Permission\Permission $permission
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionDependency whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionDependency wherePermissionId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionDependency whereDependencyId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionDependency whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionDependency whereUpdatedAt($value)
+ * @property-read Permission $permission
+ * @method static Builder|PermissionDependency whereId($value)
+ * @method static Builder|PermissionDependency wherePermissionId($value)
+ * @method static Builder|PermissionDependency whereDependencyId($value)
+ * @method static Builder|PermissionDependency whereCreatedAt($value)
+ * @method static Builder|PermissionDependency whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class PermissionDependency extends Model

@@ -1,23 +1,44 @@
 <template>
+    {{ group.name }}
 
-  Permission Group
+    <ul>
+        <li v-for="permission in permissions">
+            <a class="list-group-item media" v-link="{ name: 'permissionShow', params: { permissionId: permission.id }}">{{permission.name}}</a>
+        </li>
+    </ul>
 
+    <router-view></router-view>
 </template>
 
 <script>
 
     export default{
         data(){
-            return{
-
+            return {
+                group: null,
+                permissions: []
             }
         },
-        components:{
+        ready() {
 
-        }
+        },
+        methods: {
+
+            getPermissions(id) {
+                this.$http.get('access/groups/'+id).then(function(response) {
+                    this.group = response.data;
+                    this.permissions = response.data.permissions;
+                });
+            }
+        },
+        route: {
+            data: function (transition) {
+                this.getPermissions(this.$route.params.id);
+            }
+        },
+        components: {}
     }
 </script>
 
 <style>
-
 </style>

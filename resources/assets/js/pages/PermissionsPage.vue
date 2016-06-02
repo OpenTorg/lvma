@@ -56,23 +56,24 @@
                     </div>
 
                     <div class="list-group c-overflow">
-                        <a class="list-group-item media" v-link="{ name: 'permissionGroup', params: { id: 23 }}">
+                        <template v-for="group in groups">
+                            <a class="list-group-item media" v-link="{ name: 'permissionGroup', params: { id: group.id }}">
+                                <div class="media-body">
+                                    <div class="lgi-heading">{{group.name}}</div>
+                                    <small class="ms-time">{{group.permissions_count}} perms.</small>
+                                </div>
+                            </a>
 
-                            <div class="media-body">
-                                <div class="lgi-heading">Access</div>
-                                <small class="lgi-text">Access group</small>
-                                <small class="ms-time">5 perm</small>
-                            </div>
-                        </a>
+                            <template v-for="children in group.children">
+                                <a class="list-group-item media" v-link="{ name: 'permissionGroup', params: { id: children.id }}">
+                                    <div class="media-body">
+                                        <div class="lgi-heading">{{children.name}}</div>
+                                        <small class="ms-time">{{children.permissions_count}} perms.</small>
+                                    </div>
+                                </a>
+                            </template>
+                        </template>
 
-                        <a class="list-group-item media active" href="">
-
-                            <div class="media-body">
-                                <div class="lgi-heading">User</div>
-                                <small class="lgi-text">User group</small>
-                                <small class="ms-time">3 perm</small>
-                            </div>
-                        </a>
                     </div>
 
                 </div>
@@ -114,7 +115,9 @@
                         </ul>
                     </header>
 
-                    <router-view></router-view>
+                    <router-view>
+                    </router-view>
+
                 </div>
             </div>
         </div>
@@ -153,10 +156,25 @@
 
 
     export default{
-        props: {
-            permissions
+        data(){
+            return {
+                groups: []
+            }
         },
-        components: {},
+        ready() {
+
+            this.getGroups();
+        },
+
+        methods: {
+
+            getGroups() {
+                this.$http.get('access/groups').then(function(response) {
+                    this.groups = response.data;
+                })
+            }
+        },
+        components: {}
     }
 </script>
 

@@ -1,10 +1,17 @@
 module.exports = {
     configRouter: function (router) {
         router.map({
-            'permissions/permissionGroup/:id': {
+            'group/:id': {
                 name: 'permissionGroup',
-                component: require('./pages/PermissionGroup.vue')
+                component: require('./pages/PermissionGroup.vue'),
+                subRoutes : {
+                    '/permission/:permissionId' : {
+                        name: 'permissionShow',
+                        component: require('./pages/PermissionShow.vue')
+                    }
+                }
             }
+
         })
     }
 };

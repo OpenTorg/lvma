@@ -3,6 +3,7 @@
 namespace App\Models\Access\User;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class SocialLogin
@@ -16,14 +17,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $avatar
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereProvider($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereProviderId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereAvatar($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\SocialLogin whereUpdatedAt($value)
+ * @method static Builder|SocialLogin whereId($value)
+ * @method static Builder|SocialLogin whereUserId($value)
+ * @method static Builder|SocialLogin whereProvider($value)
+ * @method static Builder|SocialLogin whereProviderId($value)
+ * @method static Builder|SocialLogin whereToken($value)
+ * @method static Builder|SocialLogin whereAvatar($value)
+ * @method static Builder|SocialLogin whereCreatedAt($value)
+ * @method static Builder|SocialLogin whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class SocialLogin extends Model

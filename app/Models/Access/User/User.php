@@ -2,8 +2,12 @@
 
 namespace App\Models\Access\User;
 
+use App\Models\Access\Permission\Permission;
+use App\Models\Access\Role\Role;
 use App\Models\Access\User\Traits\UserAccess;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Access\User\Traits\Attribute\UserAttribute;
 use App\Models\Access\User\Traits\Relationship\UserRelationship;
@@ -31,20 +35,20 @@ use App\Models\Access\User\Traits\Relationship\UserRelationship;
  * @property-read mixed $confirmed_button
  * @property-read mixed $delete_button
  * @property-read mixed $action_buttons
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\Role\Role[] $roles
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\Permission\Permission[] $permissions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\User\SocialLogin[] $providers
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User wherePassword($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereStatus($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereConfirmationCode($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereConfirmed($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereRememberToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\User\User whereDeletedAt($value)
+ * @property-read Collection|Role[] $roles
+ * @property-read Collection|Permission[] $permissions
+ * @property-read Collection|SocialLogin[] $providers
+ * @method static Builder|User whereId($value)
+ * @method static Builder|User whereName($value)
+ * @method static Builder|User whereEmail($value)
+ * @method static Builder|User wherePassword($value)
+ * @method static Builder|User whereStatus($value)
+ * @method static Builder|User whereConfirmationCode($value)
+ * @method static Builder|User whereConfirmed($value)
+ * @method static Builder|User whereRememberToken($value)
+ * @method static Builder|User whereCreatedAt($value)
+ * @method static Builder|User whereUpdatedAt($value)
+ * @method static Builder|User whereDeletedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable

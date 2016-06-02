@@ -2,9 +2,11 @@
 
 namespace App\Models\Access\Permission;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Access\Permission\Traits\Attribute\PermissionGroupAttribute;
 use App\Models\Access\Permission\Traits\Relationship\PermissionGroupRelationship;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class PermissionGroup
@@ -16,17 +18,17 @@ use App\Models\Access\Permission\Traits\Relationship\PermissionGroupRelationship
  * @property integer $sort
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\Permission\PermissionGroup[] $children
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Access\Permission\Permission[] $permissions
+ * @property-read Collection|PermissionGroup[] $children
+ * @property-read Collection|Permission[] $permissions
  * @property-read mixed $edit_button
  * @property-read mixed $delete_button
  * @property-read mixed $action_buttons
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereParentId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereSort($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Access\Permission\PermissionGroup whereUpdatedAt($value)
+ * @method static Builder|PermissionGroup whereId($value)
+ * @method static Builder|PermissionGroup whereParentId($value)
+ * @method static Builder|PermissionGroup whereName($value)
+ * @method static Builder|PermissionGroup whereSort($value)
+ * @method static Builder|PermissionGroup whereCreatedAt($value)
+ * @method static Builder|PermissionGroup whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class PermissionGroup extends Model
