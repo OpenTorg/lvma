@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
         /**
          * Sets third party service providers that are only needed on local environments
          */
-        if ($this->app->environment() == 'local') {
+        if ($this->app->environment() === 'local') {
             /**
              * Loader for registering facades
              */
