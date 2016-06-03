@@ -54,10 +54,10 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        \JavaScript::put([
+/*        \JavaScript::put([
             'permissions' => $this->permissions->getAllPermissions(),
             'groups' => $this->groups->getAllGroups(true)
-        ]);
+        ]);*/
         return view('access.permissions.index');
     }
 

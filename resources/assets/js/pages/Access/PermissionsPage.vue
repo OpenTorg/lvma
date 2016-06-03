@@ -56,8 +56,9 @@
                     </div>
 
                     <div class="list-group c-overflow">
-                        <template v-for="group in groups">
-                            <a class="list-group-item media" v-link="{ name: 'permissionGroup', params: { id: group.id }}">
+                        <template v-for="group in permissionsGroups">
+                            <a class="list-group-item media"
+                               v-link="{ name: 'permissionGroup', params: { id: group.id }}">
                                 <div class="media-body">
                                     <div class="lgi-heading">{{group.name}}</div>
                                     <small class="ms-time">{{group.permissions_count}} perms.</small>
@@ -65,7 +66,8 @@
                             </a>
 
                             <template v-for="children in group.children">
-                                <a class="list-group-item media" v-link="{ name: 'permissionGroup', params: { id: children.id }}">
+                                <a class="list-group-item media"
+                                   v-link="{ name: 'permissionGroup', params: { id: children.id }}">
                                     <div class="media-body">
                                         <div class="lgi-heading">{{children.name}}</div>
                                         <small class="ms-time">{{children.permissions_count}} perms.</small>
@@ -125,8 +127,8 @@
 
 </template>
 
-<script>
-
+<script  type="text/babel">
+    import {getPermissionGroupsList} from '../../vuex/actions'
     let dropdownOptions = [
         {
             id: 'edit',
@@ -156,25 +158,19 @@
 
 
     export default{
-        data(){
-            return {
-                groups: []
-            }
-        },
         ready() {
-
-            this.getGroups();
+            this.getPermissionGroupsList();
         },
 
-        methods: {
+        vuex: {
+            getters: {
+                permissionsGroups: ({accessPermissions}) => accessPermissions.items
 
-            getGroups() {
-                this.$http.get('access/groups').then(function(response) {
-                    this.groups = response.data;
-                })
-            }
         },
-        components: {}
+        actions: {
+            getPermissionGroupsList
+        }
+    }
     }
 </script>
 
